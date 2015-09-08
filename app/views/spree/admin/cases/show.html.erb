@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Variant:</strong>
+  <%= @spree_case.variant %>
+</p>
+
+<p>
+  <strong>Receivedate:</strong>
+  <%= @spree_case.receivedate %>
+</p>
+
+<p>
+  <strong>Expirationdate:</strong>
+  <%= @spree_case.expirationdate %>
+</p>
+
+<p>
+  <strong>Unitpercase:</strong>
+  <%= @spree_case.unitpercase %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @spree_case.vendor %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @spree_case.cost %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @spree_case.location %>
+</p>
+
+<%= link_to 'Edit', edit_spree_case_path(@spree_case) %> |
+<%= link_to 'Back', spree_cases_path %>

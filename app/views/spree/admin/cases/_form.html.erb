@@ -1,0 +1,45 @@
+<%= form_for(@spree_case, url: admin_cases_path) do |f| %>
+<% if @spree_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spree_case.errors.count, "error") %> prohibited this spree_case from being saved:</h2>
+
+      <ul>
+        <% @spree_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :variant_id %><br>
+    <%= f.text_field :variant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :receivedate %><br>
+    <%= f.date_select :receivedate %>
+  </div>
+  <div class="field">
+    <%= f.label :expirationdate %><br>
+    <%= f.date_select :expirationdate %>
+  </div>
+  <div class="field">
+    <%= f.label :unitpercase %><br>
+    <%= f.text_field :unitpercase %>
+  </div>
+  <div class="field">
+    <%= f.label :vendor_id %><br>
+    <%= f.text_field :vendor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

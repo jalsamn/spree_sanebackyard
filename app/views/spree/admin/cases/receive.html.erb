@@ -1,0 +1,11 @@
+<h1> Receive Products </h1>
+<h3> Please scan the barcode of the product to get started </h3>
+Please make sure product cases with different expiration dates are processed seperately. Contact floor manager
+for more information on shipment and possible expiration dates.
+<br><br>
+
+<%= form_tag(admin_cases_processbarcode_path) do %>
+<h1> Revenue of Produce for All Location </h1>
+<%= text_field_tag :barcode %>
+<%= submit_tag "Submit", :disable_with => "Submitting..." %>
+<% end %>

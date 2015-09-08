@@ -1,0 +1,5 @@
+<% if Spree.user_class && can?(:admin, Spree.user_class) %>
+  <ul class="nav nav-sidebar">
+    <%= tab "Receive", url: spree.admin_users_path, icon: 'user' %>
+  </ul>
+<% end %>
