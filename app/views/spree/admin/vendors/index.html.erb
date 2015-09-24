@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Spree Vendors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Active</th>
+      <th>Leadtimedays</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spree_vendors.each do |spree_vendor| %>
+      <tr>
+        <td><%= spree_vendor.name %></td>
+        <td><%= spree_vendor.address1 %></td>
+        <td><%= spree_vendor.address2 %></td>
+        <td><%= spree_vendor.city %></td>
+        <td><%= spree_vendor.state %></td>
+        <td><%= spree_vendor.country %></td>
+        <td><%= spree_vendor.phone %></td>
+        <td><%= spree_vendor.fax %></td>
+        <td><%= spree_vendor.active %></td>
+        <td><%= spree_vendor.leadtimedays %></td>
+        <td><%= link_to 'Show', spree_vendor %></td>
+        <td><%= link_to 'Edit', edit_spree_vendor_path(spree_vendor) %></td>
+        <td><%= link_to 'Destroy', spree_vendor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vendor', new_spree_vendor_path %>

@@ -1,2 +1,9 @@
 <h1>Product Information </h1>
-<h3> Barcode: <%= @barcode %>
+<h3> Name: <%= @variant.name %></h3>
+<%= image_tag(@variant.images[0].attachment.url) %> <br>
+
+<h3>Please make sure if the product is correct. </h3>
+
+<%= form_tag(admin_cases_numberofcase_path(:variantid => @variant.id)) do %>
+<%= submit_tag "Submit", :disable_with => "Submitting..." %>
+<% end %>

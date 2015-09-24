@@ -4,15 +4,43 @@ module Spree
 class CasesController < Spree::Admin::BaseController
   before_action :set_spree_case, only: [:show, :edit, :update, :destroy]
   
-  
+
+### This is where the adding inventory into spree starts###
+###########################################################
+
+
+## Step 1 - Input screen for barcode  
   def receive
   end
   
+## Step 2 - Confirmation Screen for product, if
+## product is not found, it will show error and redirect to receive step
   def processbarcode
     if !params[:barcode].blank?
-      @product = params[:barcode]
+      if Spree::Variant.exists?(:sku => params[:barcode])
+          @variant = Spree::Variant.find_by sku: params[:barcode]
+        else
+          redirect_to admin_cases_receive_path, :flash => { :error => "Product not found, please have floor manager create it!" }
+      end
     end
   end
+  
+## Step 3 - Enter the number of cases  
+  def numberofcase
+    @variant = Spree::Variant.find(params[:variantid])
+  end
+  
+## Step 4 - Process cases  
+  def processcase
+    @variant = Spree::Variant.find(params[:variantid])
+    @numberofcases = params[:numberofcases]
+    @expiratondate = params[:expiratondate]
+    @unitpercase = params[:unitpercase]
+    @vendor = params[:vendor]
+    @costperunit = params[:costperunit]
+    
+    
+  end  
 
   # GET /spree/cases
   def index

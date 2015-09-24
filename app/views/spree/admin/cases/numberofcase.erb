@@ -1,0 +1,15 @@
+<h1> Enter Number of Cases for <%= @variant.name %> </h1>
+
+Please make sure product cases with different expiration dates are processed seperately. Contact floor manager
+for more information on shipment and possible expiration dates.<br>
+<br><br>
+
+<%= form_tag(admin_cases_processcase_path(:variantid => @variant.id)) do %>
+<h4>Number of Cases: <%= text_field_tag :numberofcases %> </h4>
+<h4>Expiration Date: <%= select_date(expirationdate = Date.current) %> </h4>
+<h4>Number of Units Per Case: <%= text_field_tag :unitpercase %> </h4>
+<h4>Vendor: <%= text_field_tag :vendor %> </h4>
+<h4>Cost Per Unit: <%= text_field_tag :costperunit %> </h4>
+<%= submit_tag "Submit", :disable_with => "Submitting..." %>
+<% end %>
+
